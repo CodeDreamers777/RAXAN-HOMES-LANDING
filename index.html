@@ -1,314 +1,604 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Raxan Homes - Find Your Perfect Property</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f4f7f6;
-        }
+      body {
+        font-family: "Poppins", sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f4f7f6;
+      }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
 
-        header {
-            background-color: #ffffff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-        }
+      header {
+        background-color: #ffffff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+      }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+      }
 
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: #3a86ff;
-        }
+      .logo {
+        font-size: 24px;
+        font-weight: 700;
+        color: #3a86ff;
+      }
 
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
+      .nav-links {
+        display: flex;
+        gap: 30px;
+      }
 
-        .nav-links a {
-            color: #333;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
+      .nav-links a {
+        color: #333;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease;
+      }
 
-        .nav-links a:hover {
-            color: #3a86ff;
-        }
+      .nav-links a:hover {
+        color: #3a86ff;
+      }
 
-        .hero {
-            background: linear-gradient(135deg, #3a86ff 0%, #ff006e 100%);
-            color: #ffffff;
-            padding: 150px 0 100px;
-            text-align: center;
-        }
+      .hero {
+        background: linear-gradient(135deg, #3a86ff 0%, #ff006e 100%);
+        color: #ffffff;
+        padding: 150px 0 100px;
+        text-align: center;
+      }
 
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            animation: fadeInUp 1s ease;
-        }
+      .hero h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+        animation: fadeInUp 1s ease;
+      }
 
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 40px;
-            animation: fadeInUp 1s ease 0.2s;
-            animation-fill-mode: both;
-        }
+      .hero p {
+        font-size: 18px;
+        margin-bottom: 40px;
+        animation: fadeInUp 1s ease 0.2s;
+        animation-fill-mode: both;
+      }
 
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            animation: fadeInUp 1s ease 0.4s;
-            animation-fill-mode: both;
-        }
+      .cta-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        animation: fadeInUp 1s ease 0.4s;
+        animation-fill-mode: both;
+      }
 
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            padding: 12px 24px;
-            background-color: #ffffff;
-            color: #3a86ff;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+      .cta-button {
+        display: inline-flex;
+        align-items: center;
+        padding: 12px 24px;
+        background-color: #ffffff;
+        color: #3a86ff;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: 600;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
+      .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
 
-        .cta-button i {
-            margin-right: 10px;
-            font-size: 20px;
-        }
+      .cta-button i {
+        margin-right: 10px;
+        font-size: 20px;
+      }
 
-        .features {
-            padding: 100px 0;
-            text-align: center;
-        }
+      .features {
+        padding: 100px 0;
+        text-align: center;
+      }
 
-        .features h2 {
-            font-size: 36px;
-            margin-bottom: 50px;
-            color: #3a86ff;
-        }
+      .features h2 {
+        font-size: 36px;
+        margin-bottom: 50px;
+        color: #3a86ff;
+      }
 
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-        }
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+      }
 
-        .feature-item {
-            background-color: #ffffff;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
+      .feature-item {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
 
-        .feature-item:hover {
-            transform: translateY(-10px);
-        }
+      .feature-item:hover {
+        transform: translateY(-10px);
+      }
 
-        .feature-item i {
-            font-size: 48px;
-            color: #3a86ff;
-            margin-bottom: 20px;
-        }
+      .feature-item i {
+        font-size: 48px;
+        color: #3a86ff;
+        margin-bottom: 20px;
+      }
 
-        .feature-item h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
-        }
+      .feature-item h3 {
+        font-size: 24px;
+        margin-bottom: 15px;
+      }
 
-        footer {
-            background-color: #333;
-            color: #ffffff;
-            text-align: center;
-            padding: 20px 0;
-        }
+      footer {
+        background-color: #333;
+        color: #ffffff;
+        text-align: center;
+        padding: 20px 0;
+      }
 
-        .terms-privacy {
-            padding: 100px 0;
-        }
+      .terms-privacy {
+        padding: 100px 0;
+      }
 
-        .terms-privacy h2 {
-            font-size: 36px;
-            margin-bottom: 30px;
-            color: #3a86ff;
-        }
+      .terms-privacy h2 {
+        font-size: 36px;
+        margin-bottom: 30px;
+        color: #3a86ff;
+      }
 
-        .terms-privacy h3 {
-            font-size: 24px;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
+      .terms-privacy h3 {
+        font-size: 24px;
+        margin-top: 30px;
+        margin-bottom: 15px;
+      }
 
-        .terms-privacy p, .terms-privacy ul {
-            margin-bottom: 15px;
-        }
+      .terms-privacy p,
+      .terms-privacy ul {
+        margin-bottom: 15px;
+      }
 
-        .terms-privacy ul {
-            padding-left: 20px;
-        }
+      .terms-privacy ul {
+        padding-left: 20px;
+      }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
         }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* New styles for the contact section */
+      .contact {
+        padding: 100px 0;
+        background-color: #f9f9f9;
+      }
+
+      .contact h2 {
+        font-size: 36px;
+        margin-bottom: 50px;
+        color: #3a86ff;
+        text-align: center;
+      }
+
+      .contact-content {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+      }
+
+      .contact-form {
+        flex: 1;
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .contact-form form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .contact-form textarea {
+        height: 150px;
+        resize: vertical;
+      }
+
+      .contact-form button {
+        background-color: #3a86ff;
+        color: #ffffff;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+      }
+
+      .contact-form button:hover {
+        background-color: #2a75e6;
+      }
+
+      .contact-info {
+        flex: 1;
+      }
+
+      .contact-info h3 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #3a86ff;
+      }
+
+      .contact-info p {
+        margin-bottom: 10px;
+      }
+
+      .contact-info i {
+        margin-right: 10px;
+        color: #3a86ff;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <nav class="container">
-            <div class="logo">Raxan Homes</div>
-            <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#features">Features</a>
-                <a href="#terms">Terms of Use</a>
-                <a href="#privacy">Privacy Policy</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </nav>
+      <nav class="container">
+        <div class="logo">Raxan Homes</div>
+        <div class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#features">Features</a>
+          <a href="#terms">Terms of Use</a>
+          <a href="#privacy">Privacy Policy</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
     </header>
 
     <section class="hero" id="home">
-        <div class="container">
-            <h1>Find Your Perfect Property</h1>
-            <p>Rent, buy, or sell properties with ease using Raxan Homes</p>
-            <div class="cta-buttons">
-                <a href="#" class="cta-button">
-                    <i class="fab fa-google-play"></i> Google Play
-                </a>
-                <a href="#" class="cta-button">
-                    <i class="fab fa-apple"></i> App Store
-                </a>
-            </div>
+      <div class="container">
+        <h1>Find Your Perfect Property</h1>
+        <p>Rent, buy, or sell properties with ease using Raxan Homes</p>
+        <div class="cta-buttons">
+          <a href="#" class="cta-button">
+            <i class="fab fa-google-play"></i> Google Play
+          </a>
+          <a href="#" class="cta-button">
+            <i class="fab fa-apple"></i> App Store
+          </a>
         </div>
+      </div>
     </section>
 
     <section class="features" id="features">
-        <div class="container">
-            <h2>Why Choose Raxan Homes?</h2>
-            <div class="feature-grid">
-                <div class="feature-item">
-                    <i class="fas fa-home"></i>
-                    <h3>Wide Selection</h3>
-                    <p>Browse through thousands of properties for rent or sale</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-dollar-sign"></i>
-                    <h3>Easy Listing</h3>
-                    <p>List your property in minutes and reach potential buyers or tenants</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-comments"></i>
-                    <h3>Direct Messaging</h3>
-                    <p>Communicate directly with property owners or interested clients</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-map-marked-alt"></i>
-                    <h3>Virtual Tours</h3>
-                    <p>Coming Soon: Explore properties with 360° virtual tours and detailed photos</p>
-                </div>
-            </div>
+      <div class="container">
+        <h2>Why Choose Raxan Homes?</h2>
+        <div class="feature-grid">
+          <div class="feature-item">
+            <i class="fas fa-home"></i>
+            <h3>Wide Selection</h3>
+            <p>Browse through thousands of properties for rent or sale</p>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-dollar-sign"></i>
+            <h3>Easy Listing</h3>
+            <p>
+              List your property in minutes and reach potential buyers or
+              tenants
+            </p>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-comments"></i>
+            <h3>Direct Messaging</h3>
+            <p>
+              Communicate directly with property owners or interested clients
+            </p>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-map-marked-alt"></i>
+            <h3>Virtual Tours</h3>
+            <p>
+              Coming Soon: Explore properties with 360° virtual tours and
+              detailed photos
+            </p>
+          </div>
         </div>
+      </div>
     </section>
 
     <section class="terms-privacy" id="terms">
-        <div class="container">
-            <h2>Terms of Use</h2>
-            <p>Welcome to Raxan Homes. By using our app, you agree to the following terms:</p>
-            <h3>1. Acceptance of Terms</h3>
-            <p>By accessing or using the Raxan Homes app, you agree to be bound by these Terms of Use.</p>
-            <h3>2. User Accounts</h3>
-            <p>You are responsible for maintaining the confidentiality of your account and password. You agree to accept responsibility for all activities that occur under your account.</p>
-            <h3>3. Property Listings</h3>
-            <p>Users may list properties for rent or sale. By listing a property, you certify that you have the right to list the property and that all information provided is accurate and up-to-date.</p>
-            <h3>4. Booking and Transactions</h3>
-            <p>Raxan Homes facilitates property bookings and transactions between users but is not a party to any transaction between users.</p>
-            <h3>5. Messaging</h3>
-            <p>Users can message each other through the app. You agree not to use this feature for any unlawful or abusive purposes.</p>
-            <h3>6. Prohibited Activities</h3>
-            <p>Users are prohibited from engaging in any illegal activities, harassment, or fraudulent behavior on the app.</p>
-            <h3>7. Termination</h3>
-            <p>We reserve the right to terminate or suspend your account at our sole discretion, without notice, for conduct that we believe violates these Terms of Use or is harmful to other users, us, or third parties, or for any other reason.</p>
-        </div>
-    </section>
+      <div class="container">
+        <h2>Terms of Use</h2>
+        <p>
+          Welcome to Raxan Homes. By using our app, you agree to the following
+          terms:
+        </p>
 
+        <h3>1. Acceptance of Terms</h3>
+        <p>
+          By accessing or using the Raxan Homes app, you agree to be bound by
+          these Terms of Use.
+        </p>
+
+        <h3>2. User Accounts</h3>
+        <p>
+          You are responsible for maintaining the confidentiality of your
+          account and password. You agree to accept responsibility for all
+          activities that occur under your account.
+        </p>
+
+        <h3>3. Property Listings</h3>
+        <p>
+          Users may list properties for rent or sale. By listing a property, you
+          certify that you have the right to list the property and that all
+          information provided is accurate and up-to-date.
+        </p>
+
+        <h3>4. Seller Verification</h3>
+        <p>
+          To list a property, sellers may be required to provide identification
+          documents such as ID numbers or passport information. You agree to
+          provide accurate and current information for verification purposes.
+        </p>
+
+        <h3>5. Booking and Transactions</h3>
+        <p>
+          Raxan Homes facilitates property bookings and transactions between
+          users but is not a party to any transaction between users. Payment
+          processing is handled by our third-party payment processor, Paystack.
+        </p>
+
+        <h3>6. Messaging</h3>
+        <p>
+          Users can message each other through the app. You agree not to use
+          this feature for any unlawful or abusive purposes.
+        </p>
+
+        <h3>7. Prohibited Activities</h3>
+        <p>
+          Users are prohibited from engaging in any illegal activities,
+          harassment, or fraudulent behavior on the app.
+        </p>
+
+        <h3>8. Intellectual Property</h3>
+        <p>
+          All content and functionality on the app, including but not limited to
+          text, graphics, logos, and software, is the property of Raxan Homes or
+          its licensors and is protected by copyright and other intellectual
+          property laws.
+        </p>
+
+        <h3>9. Limitation of Liability</h3>
+        <p>
+          Raxan Homes shall not be liable for any indirect, incidental, special,
+          consequential, or punitive damages resulting from your use of or
+          inability to use the app.
+        </p>
+
+        <h3>10. Governing Law</h3>
+        <p>
+          These Terms of Use shall be governed by and construed in accordance
+          with the laws of Kenya, without regard to its conflict of law
+          provisions.
+        </p>
+
+        <h3>11. Changes to Terms</h3>
+        <p>
+          We reserve the right to modify these Terms of Use at any time. We will
+          notify users of any significant changes via email or through the app.
+        </p>
+
+        <h3>12. Termination</h3>
+        <p>
+          We reserve the right to terminate or suspend your account at our sole
+          discretion, without notice, for conduct that we believe violates these
+          Terms of Use or is harmful to other users, us, or third parties, or
+          for any other reason.
+        </p>
+      </div>
+    </section>
     <section class="terms-privacy" id="privacy">
-        <div class="container">
-            <h2>Privacy Policy</h2>
-            <p>At Raxan Homes, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your personal information.</p>
-            <h3>1. Information We Collect</h3>
-            <ul>
-                <li>Personal information (e.g., name, email address, phone number)</li>
-                <li>Property information for listings</li>
-                <li>Messages between users</li>
-                <li>Transaction data</li>
-            </ul>
-            <h3>2. How We Use Your Information</h3>
-            <p>We use your information to:</p>
-            <ul>
-                <li>Facilitate property listings, bookings, and transactions</li>
-                <li>Enable communication between users</li>
-                <li>Improve our services and user experience</li>
-                <li>Comply with legal obligations</li>
-            </ul>
-            <h3>3. Data Security</h3>
-            <p>We implement appropriate technical and organizational measures to protect your personal information against unauthorized or unlawful processing, accidental loss, destruction, or damage.</p>
-            <h3>4. Data Sharing</h3>
-            <p>We do not sell your personal information. We may share your information with other users as necessary for the functioning of the app (e.g., sharing contact information for property viewings).</p>
-            <h3>5. Your Rights</h3>
-            <p>You have the right to access, correct, or delete your personal information. You can manage your information through your account settings or by contacting us.</p>
-            <h3>6. Changes to This Policy</h3>
-            <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.</p>
+      <div class="container">
+        <h2>Privacy Policy</h2>
+        <p>
+          At Raxan Homes, we are committed to protecting your privacy. This
+          Privacy Policy explains how we collect, use, and safeguard your
+          personal information.
+        </p>
+
+        <h3>1. Information We Collect</h3>
+        <ul>
+          <li>
+            Personal information (e.g., name, email address, phone number)
+          </li>
+          <li>Property information for listings</li>
+          <li>Messages between users</li>
+          <li>Transaction data</li>
+          <li>
+            For sellers: Identification documents (ID numbers or passport
+            information)
+          </li>
+        </ul>
+
+        <h3>2. How We Use Your Information</h3>
+        <p>We use your information to:</p>
+        <ul>
+          <li>Facilitate property listings, bookings, and transactions</li>
+          <li>Enable communication between users</li>
+          <li>Verify seller identities and prevent fraud</li>
+          <li>Improve our services and user experience</li>
+          <li>Comply with legal obligations</li>
+        </ul>
+
+        <h3>3. Data Security</h3>
+        <p>
+          We implement appropriate technical and organizational measures to
+          protect your personal information against unauthorized or unlawful
+          processing, accidental loss, destruction, or damage.
+        </p>
+
+        <h3>4. Data Sharing</h3>
+        <p>
+          We do not sell your personal information. We may share your
+          information with:
+        </p>
+        <ul>
+          <li>
+            Other users as necessary for the functioning of the app (e.g.,
+            sharing contact information for property viewings)
+          </li>
+          <li>Our payment processor, Paystack, to facilitate transactions</li>
+          <li>
+            Law enforcement or other government agencies when required by law
+          </li>
+        </ul>
+
+        <h3>5. Third-Party Services</h3>
+        <p>
+          Our app integrates with Paystack for payment processing. Please review
+          Paystack's privacy policy for information on how they handle your
+          payment data.
+        </p>
+
+        <h3>6. Your Rights</h3>
+        <p>You have the right to:</p>
+        <ul>
+          <li>Access, correct, or delete your personal information</li>
+          <li>Object to or restrict the processing of your data</li>
+          <li>Request a copy of your data in a portable format</li>
+          <li>Withdraw consent for data processing at any time</li>
+        </ul>
+        <p>
+          You can manage your information through your account settings or by
+          contacting us.
+        </p>
+
+        <h3>7. Data Retention</h3>
+        <p>
+          We retain your personal information for as long as necessary to
+          provide our services and comply with legal obligations. You may
+          request deletion of your account and associated data at any time.
+        </p>
+
+        <h3>8. Children's Privacy</h3>
+        <p>
+          Our services are not intended for use by children under the age of 18.
+          We do not knowingly collect personal information from children under
+          18.
+        </p>
+
+        <h3>9. International Data Transfers</h3>
+        <p>
+          Your information may be transferred to and processed in countries
+          other than your own. We ensure appropriate safeguards are in place to
+          protect your information in compliance with applicable data protection
+          laws.
+        </p>
+
+        <h3>10. Changes to This Policy</h3>
+        <p>
+          We may update this Privacy Policy from time to time. We will notify
+          you of any significant changes by posting the new Privacy Policy on
+          this page and updating the "Last updated" date.
+        </p>
+
+        <h3>11. Contact Us</h3>
+        <p>
+          If you have any questions about this Privacy Policy or our data
+          practices, please contact us at [Your Contact Information].
+        </p>
+
+        <p>Last updated: [Current Date]</p>
+      </div>
+    </section>
+    <!-- New Contact Section -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <h2>Contact Us</h2>
+        <div class="contact-content">
+          <div class="contact-form">
+            <form action="#" method="POST">
+              <input type="text" name="name" placeholder="Your Name" required />
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                required
+              />
+              <input
+                type="text"
+                name="subject"
+                placeholder="Subject"
+                required
+              />
+              <textarea
+                name="message"
+                placeholder="Your Message"
+                required
+              ></textarea>
+              <button type="submit">Send Message</button>
+            </form>
+          </div>
+          <div class="contact-info">
+            <h3>Get in Touch</h3>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> 123 Real Estate Avenue,
+              Nairobi, Kenya
+            </p>
+            <p><i class="fas fa-phone"></i> +254 123 456 789</p>
+            <p><i class="fas fa-envelope"></i> info@raxanhomes.com</p>
+            <p><i class="fas fa-clock"></i> Monday - Friday: 9am - 5pm</p>
+          </div>
         </div>
+      </div>
     </section>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2024 Raxan Homes. All rights reserved.</p>
-        </div>
+      <div class="container">
+        <p>&copy; 2024 Raxan Homes. All rights reserved.</p>
+      </div>
     </footer>
-</body>
+  </body>
 </html>
